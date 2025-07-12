@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}
+
+/* Custom animations */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    hsl(var(--muted)) 8%,
+    hsl(var(--accent)) 18%,
+    hsl(var(--muted)) 33%
+  );
+  background-size: 800px 100px;
+}
+
+/* Status indicators */
+.status-pending {
+  @apply bg-status-pending;
+}
+
+.status-running {
+  @apply bg-status-running animate-pulse;
+}
+
+.status-completed {
+  @apply bg-status-completed;
+}
+
+.status-failed {
+  @apply bg-status-failed;
+}
+
+/* Severity indicators */
+.severity-critical {
+  @apply bg-severity-critical;
+}
+
+.severity-high {
+  @apply bg-severity-high;
+}
+
+.severity-medium {
+  @apply bg-severity-medium;
+}
+
+.severity-low {
+  @apply bg-severity-low;
+}
+
+.severity-info {
+  @apply bg-severity-info;
+}
+
+/* Utility classes */
+.text-gradient {
+  @apply bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent;
+}
+
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-sm border border-white/20;
+}
+
+.dark .glass-effect {
+  @apply bg-black/10 backdrop-blur-sm border border-white/10;
+}
+
+/* Code blocks */
+.code-block {
+  @apply bg-muted rounded-lg p-4 font-mono text-sm overflow-x-auto;
+}
+
+/* Data tables */
+.data-table {
+  @apply w-full border-collapse border-spacing-0;
+}
+
+.data-table th {
+  @apply bg-muted font-medium text-left px-4 py-3 border-b;
+}
+
+.data-table td {
+  @apply px-4 py-3 border-b;
+}
+
+.data-table tr:hover {
+  @apply bg-muted/50;
+}
+
+/* Loading skeleton */
+.skeleton {
+  @apply animate-pulse bg-muted rounded;
+}
+
+/* Focus visible outline */
+.focus-visible {
+  @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+}
